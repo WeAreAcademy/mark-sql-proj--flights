@@ -18,7 +18,7 @@ tags:
 
 ## Overview
 
-You will write queries to find out information from a provided flight bookings database.
+You will write queries to find out information from a provided database containing flight bookings.
 
 ## Setup
 
@@ -76,7 +76,10 @@ Notes:
 - List all aircraft
 - List the seats on the aircraft of type "Cessna 208 Caravan"
 - List all cities having more than one airport
-- List all destinations for flights from Volgograd
+- List all unique destinations for flights from 'Volgograd'...
+  - first, using only `flights` and `airports`
+  - then, again using the `routes` view
+  - Ensure you get the same list of destinations from both approaches.
 - List the counts of flights in each status (arrived, cancelled, departed, etc)
 - Find the next flight from Yekaterinburg to Moscow, where the time now is given by bookings.now()
 - List the 10 most expensive bookings
