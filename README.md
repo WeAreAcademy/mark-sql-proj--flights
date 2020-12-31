@@ -90,12 +90,15 @@ Notes:
   - include the flight status, airport names, the model of plane, and fare conditions (business / economy)
 - 100: List the seats occupied by Antonina Kuznecova on the various flights that form part of ticket 0005432661915
   - alongside seat number, include date of each flight, departure and arrival cities
-- 130: List the booking information for a given booking reference, showing flights, departure time, and seat number if check-in has already taken place.
 
 ### Extra query ideas
 
-- 200: List all passengers booked on the (on-time) flight with flight_id '18009'. Include their seat number, if they have checked in, otherwise, leave it null.
-- How many seats were not booked on flight X
+- 110: List counts of all of the flights in the database for each of the possible statuses (e.g. Arrived:16707, Cancelled:???,... ). Order by status.
+
+- MISSING 130: List the booking information for a given booking reference, showing flights, departure time, and seat number if check-in has already taken place.
+
+- 200: List all passengers booked on the (On Time) flight with flight_id '3122'. Include their seat number if they have checked in, otherwise, leave it null.
+- How many seats were _not_ booked on flight X
 
 - 210: List each departure-airport's count of delayed flights.
 
@@ -106,56 +109,69 @@ Notes:
   - passenger name and id
   - passenger phone number (extracted from the contact_data record) // hint: https://www.postgresql.org/docs/9.3/functions-json.html
   - whether they are travelling business or economy
-  - how much their ticket cost
+  - how much their flight cost
   - the flight number
   - the departing and destination airports
   - how long they have been waiting
 
--SKIP: find out if the delayed passengers have other flights booked and what the window is
-
-- 240: Report the total costs of tickets purchased on each flight which is currently delayed. Show the flights with the highest totals first.
+- 240: For each currently delayed flight, report the total amount spent on it. Show the flights with the highest totals first.
 
 - 250: list delayed flights which are destined for an airport further West than any Moscow airport. How many are there?
 
--SKIP: map the destination airports of the delayed flights on a map (use leaflet.js). E.g. export SQL-generated report to json and paste into some scaffolded codepen.
+- 260: List all routes where the arrival airport is at least 14 degrees further north than the departure airport. Sort the routes to show the most extreme of these journeys, first.
 
-- 260: list the 5 single flight routes which travel the furthest from south to north.
+- 265: List the ten routes which have planes flying the furthest distance from east to west.
 
-- find all passengers who are the only passenger booked on their respective flights
+- 270: Find the details of the (presumably luxurious) 'On Time' flights which have only one ticket booked on them. For each, list:
 
-- List all passenger names and ids who have travelled _directly_ from airport A to airport B within the month of december, 2016. You can assume having a boarding pass means they travelled. Include their seat number.
+* the name of the only passenger
+* whether the passenger has checked in yet or not
+* how much they paid for the flight
+* the model name of the aircraft
 
-- List all passenger names and ids who were planning to fly _directly_ from airport A to airport B on the day of D. Include their seat number, if they have checked in.
+- 280: List all passenger names and ids who have travelled _directly_ from Moscow (any airport) to Tambow on the 22nd or 23rd of July, 2017. You can assume having a boarding pass means they travelled. For each traveller, include:
 
-- Was there a cheaper way for passenger P to accomplish his journey on day D? Write as few queries as possible.
+* passenger's name,
+* passenger's id,
+* passenger's phone number,
+* seat number,
+* flight number,
+* actual departure time,
+* departure and arrival airport codes
 
-- list all of the airports that airplane with aircraft_code took off from during the month of M.
+- 290: List the names and seat numbers of the six passengers who sat in row 45 or 46 of the flight with the flight_id of 30625.
 
-- for each scheduled flight on day D, list the flight number, the count of checked in passengers, the count of booked tickets which have not yet checked in, and the available capacity that can still be sold.
+- 300: Find the airport with the fewest scheduled flights.
+- 301: On what days of the week, and to where, can you fly out of the airport you found in the previous exercise?
 
-- list all passengers who have not yet checked in for flight F.
+- 310: From which 5 cities can you fly out on a 'Boeing 777-300' (TAG: Easy)
 
-- list the passengers who have travelled the most.
-
-- list the airport with the fewest flights
-
-- Too hard: Passenger X wants to fly from A to B but notices there are no direct flights: write a query to find acceptable flights given the passenger wants to spend no more than M money nor for the total journey duration to be more than D days.
-
-# Presentation task 1
-
-- TODO: try to pick passengers for this task which all have a lot of data associated (multiple flights, different days, return journey, travelling companions, ticket costs, different flight statuses (scheduled, not yet departed, cancelled),
-
-  - who is the person sitting next to, etc.
+# Presentation task:
 
 - Discover as much as you can about your assigned passenger (see below) and prepare a short presentation on this data and the queries you used to obtain it:
 
-- group 1: "DMITRIY KUZMIN"
+- group 1: "DMITRIY KUZMIN" (TODO: give passenger ids or booking numbers)
 - group 2: "YURIY MAKAROV"
 - group 3: "ALEKSANDR ABRAMOV"
 - group 4: "ALIYA MELNIKOVA"
 - group 5: "VALERIY KUZNECOV"
 
-# Ideas for more work
+- TODO: Pick passengers for this task which all have a lot of data associated (multiple flights, different days, return journey, travelling companions, flight costs, WHO made the booking for them, when it was made, different flight statuses (scheduled, not yet departed, cancelled), who they are sitting next to, who they travelled with, etc
+
+# Teacher Notes
+
+- TODO: for 250, 260, and particularly, 265: map the destination airports of the delayed flights on a map (use leaflet.js). E.g. export SQL-generated report to json and paste into some scaffolded codepen.
+
+-for 230, find out if the delayed passengers have other flights booked and what the window is. TODO: (the generated data probably makes no sense)
+
+- for each scheduled flight on day D, list the flight number, the count of checked in passengers, the count of booked tickets which have not yet checked in, and the available capacity that can still be sold. TODO: it looks like no flight is ever half booked.
+
+- list all passengers who have not yet checked in for flight F.
+
+- find a plane which flew without some booked passengers - seems to be none matching
+- which route requires the highest percentage of its plane's range. (No distance stored on routes. we already have calculations from coords)
+- Not possible: Was there a cheaper way for passenger P to accomplish his journey on day D? Write as few queries as possible. Not possible because we don't know the prices of flights.
+- NOT POSSIBLE: list the passengers who have travelled the most. NOT POSSIBLE BECAUSE: no recognisable individual has bought more than one ticket in the data.
 
 ## Credits
 
