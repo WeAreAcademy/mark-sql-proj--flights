@@ -90,8 +90,6 @@ Notes:
   - include the flight status, airport names, the model of plane, and fare conditions (business / economy)
 - 100: List the seats occupied by Antonina Kuznecova on the various flights that form part of ticket 0005432661915
   - alongside seat number, include date of each flight, departure and arrival cities
-- SKIP: 110: Create a booking (a transaction with multiple inserts (into bookings, tickets, ticket_flights))
-- SKIP: 120: Add a boarding pass for someone's ticket on a certain flight (model checking in)
 - 130: List the booking information for a given booking reference, showing flights, departure time, and seat number if check-in has already taken place.
 
 ### Extra query ideas
