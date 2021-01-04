@@ -66,9 +66,9 @@ This may take a couple of minutes.
 
 Familiarise yourself with the database structure by reading the following documents:
 
-- Schema detail: https://postgrespro.com/docs/postgrespro/10/apjs03
-- Schema diagram: https://postgrespro.com/docs/postgrespro/10/apjs02.html
-- Schema objects (most importantly, tables and views): https://postgrespro.com/docs/postgrespro/10/apjs04
+- [Schema detail](https://postgrespro.com/docs/postgrespro/10/apjs03)
+- [Schema diagram](https://postgrespro.com/docs/postgrespro/10/apjs02.html)
+- [Schema objects](https://postgrespro.com/docs/postgrespro/10/apjs04) (most importantly, tables and views)
 
 ## Exercise - writing queries:
 
@@ -123,7 +123,7 @@ Notes:
 - 230: You must prepare a report for customer services. For each passenger currently booked on a flight which is currently delayed, and which was scheduled to leave at least 1 hour ago -relative to the time returned by bookings.now(). List the following:
 
   - passenger name and id
-  - passenger phone number (extracted from the contact_data record) // hint: https://www.postgresql.org/docs/9.3/functions-json.html
+  - passenger phone number (extracted from the contact_data record) // hint [see this documentation.](https://www.postgresql.org/docs/11/functions-json.html)
   - Whether they are travelling business or economy
   - how much their flight cost
   - the flight number
@@ -144,13 +144,13 @@ Notes:
     - departure_coordinates
     - arrival_coordinates
 
-- 261 (optional): Export your results from task #260 as JSON, and copy-paste them into the visualiser, here: https://academy-flight-routes-vis.netlify.app/
+- 261 (optional): Export your results from task #260 as JSON, and copy-paste them into [this visualiser](https://academy-flight-routes-vis.netlify.app/).
 
   - Does the visualisation confirm your expectations about these north-south journeys, and their rankings?
 
 - 265: List the ten routes which have planes flying the furthest distance from east to west.
 
-- 266: (optional): Export your results from task #265 as JSON, and copy-paste them into the visualiser, here: https://academy-flight-routes-vis.netlify.app/
+- 266: (optional): Export your results from task #265 as JSON, and copy-paste them into [this visualiser](https://academy-flight-routes-vis.netlify.app/).
 
   - Does the visualisation confirm your expectations about these east-west journeys, and their rankings?
 
