@@ -20,48 +20,55 @@ tags:
 
 You will write queries to find out information from a provided database containing flight bookings.
 
-## Setup
+## Pre-reqs
 
-- Code setup TODO
+- You have Postgres installed.
+- You have a database user which has the same name as your login, and it has permissions to create databases.
+- Optional, recommended: You have installed the [vscode extension `PostgreSQL` by Chris Kolkman](https://marketplace.visualstudio.com/items?itemName=ckolkman.vscode-postgres) or some other means of quickly running queries.
+
+## Setup
 
 ### Database setup
 
-- Install postgres: TODO: postgres installation notes
+- In the terminal, log in as your database user.
 
-- Switch to user `postgres`
+- Download [this database-creation script](https://edu.postgrespro.com/demo-small-en.zip).
 
-`sudo -i -u postgres`
+Tip: you can do this on the terminal, if you have `wget` installed:
 
-- As user postgres, download the database-creation script:
+`wget https://edu.postgrespro.com/demo-small-en.zip`
 
-```
-wget https://edu.postgrespro.com/demo-small-en.zip
-```
+- Unzip it
 
-- As user postgres, unzip the database-creation script:
+e.g. on the terminal:
 
 ```
 unzip demo-small-en.zip
 ```
 
-It should contain a file called `demo-small-en-20170815.sql` or similar.
+- Check it contains a file called `demo-small-en-20170815.sql`, or similar.
 
-- As user postgres, have psql interpret the database-creation script:
+- Ensure you do not have a database called `demo` which you do not wish to lose - the following step will delete it!
+
+- On the terminal, ensure you are logged in with your normal user.
+
+- On the terminal, have `psql` execute the database-creation script:
 
 ```
 psql < demo-small-en-20170815.sql
 ```
 
-You should see messages that are very similar to [this log](log-files/expected-log-from-db-creation.txt)
+This may take a couple of minutes.
 
-- Github setup TODO
+- Check there is only one error in the log, and that it concerns the DROP DATABASE statement. (This error will arise because the database doesn't yet exist.)
 
 ## Exercise: familiarisation
 
-- Read the following:
-  - schema detail https://postgrespro.com/docs/postgrespro/10/apjs03
-  - schema diagram https://postgrespro.com/docs/postgrespro/10/apjs02.html
-  - schema objects (most importantly, tables and views) https://postgrespro.com/docs/postgrespro/10/apjs04
+Familiarise yourself with the database structure by reading the following documents:
+
+- Schema detail: https://postgrespro.com/docs/postgrespro/10/apjs03
+- Schema diagram: https://postgrespro.com/docs/postgrespro/10/apjs02.html
+- Schema objects (most importantly, tables and views): https://postgrespro.com/docs/postgrespro/10/apjs04
 
 ## Exercise:
 
@@ -70,45 +77,42 @@ Notes:
 - In each case, provide the query you use.
 - Unless otherwise noted, you should write a single query for each task.
 
-### Queries (existing)
+### Queries (warm-up)
 
 - 010: List all aircraft
 - 020: List the seats on the aircraft of type "Cessna 208 Caravan"
 - 030: List all cities having more than one airport
-- 04x: List all unique destinations for flights from 'Volgograd'...
+- List all unique destinations for flights from 'Volgograd'...
 
 - 041: first, using only `flights` and `airports`
 - 042: then, again using the `routes` view
 - Ensure you get the same list of destinations from both approaches.
 
 - 050: List the counts of flights in each status (arrived, cancelled, departed, etc)
-- 060: Find the next flight from Yekaterinburg to Moscow, where the time now is given by bookings.now()
+- 060: Find the "next" flight from Yekaterinburg to Moscow, where "next" is relative to a time given by bookings.now().
 - 070: List the 10 most expensive bookings
 - 075: List all passengers on the top 3 most expensive bookings
 - 080: List the tickets on the booking which has booking reference 521C53
-- 090: List the FLIGHTS (not the tickets) included on Antonina Kuznecova's ticket (ticket number 0005432661915)
+- 090: List the FLIGHTS (not the tickets) included on Antonina Kuznecova's ticket (ticket number 0005432661915).
   - include the flight status, airport names, the model of plane, and fare conditions (business / economy)
 - 100: List the seats occupied by Antonina Kuznecova on the various flights that form part of ticket 0005432661915
   - alongside seat number, include date of each flight, departure and arrival cities
 
-### Extra query ideas
+### More queries
 
 - 110: List counts of all of the flights in the database for each of the possible statuses (e.g. Arrived:16707, Cancelled:???,... ). Order by status.
 
-- MISSING 130: List the booking information for a given booking reference, showing flights, departure time, and seat number if check-in has already taken place.
-
 - 200: List all passengers booked on the (On Time) flight with flight_id '3122'. Include their seat number if they have checked in, otherwise, leave it null.
-- How many seats were _not_ booked on flight X
 
 - 210: List each departure-airport's count of delayed flights.
 
 - 220: List the counts of delayed flights from the city Moscow, breaking it down per airport. (This will be easier with flights_v).
 
-- 230: You must prepare a report for customer services. For each passenger currently booked on a flight which is currently delayed, and which was scheduled to leave at least 1 hour ago* (*according to bookings.now()), list the following:
+- 230: You must prepare a report for customer services. For each passenger currently booked on a flight which is currently delayed, and which was scheduled to leave at least 1 hour ago -relative to the time returned by bookings.now(). List the following:
 
   - passenger name and id
   - passenger phone number (extracted from the contact_data record) // hint: https://www.postgresql.org/docs/9.3/functions-json.html
-  - whether they are travelling business or economy
+  - Whether they are travelling business or economy
   - how much their flight cost
   - the flight number
   - the departing and destination airports
@@ -144,7 +148,7 @@ Notes:
 - 300: Find the airport with the fewest scheduled flights.
 - 301: On what days of the week, and to where, can you fly out of the airport you found in the previous exercise?
 
-- 310: From which 5 cities can you fly out on a 'Boeing 777-300' (TAG: Easy)
+- 310: From which 5 cities can you fly out on a 'Boeing 777-300'?
 
 # Presentation task:
 
@@ -158,18 +162,20 @@ Notes:
 
 - TODO: Pick passengers for this task which all have a lot of data associated (multiple flights, different days, return journey, travelling companions, flight costs, WHO made the booking for them, when it was made, different flight statuses (scheduled, not yet departed, cancelled), who they are sitting next to, who they travelled with, etc
 
-# Teacher Notes
+# TODO: work in progress
+
+- TODO: pick the passengers (and passenger ids) for the presentation task (see above)
+
+  - check if it is possible to track more than one ticket for a unique passenger
 
 - TODO: for 250, 260, and particularly, 265: map the destination airports of the delayed flights on a map (use leaflet.js). E.g. export SQL-generated report to json and paste into some scaffolded codepen.
 
--for 230, find out if the delayed passengers have other flights booked and what the window is. TODO: (the generated data probably makes no sense)
+- possible minor extra query. for each scheduled flight on day D, list the flight number, the count of checked in passengers, the count of booked tickets which have not yet checked in, and the available capacity that can still be sold.
 
-- for each scheduled flight on day D, list the flight number, the count of checked in passengers, the count of booked tickets which have not yet checked in, and the available capacity that can still be sold. TODO: it looks like no flight is ever half booked.
+-possible addition for 230: find out if the delayed passengers have other flights booked and what the window is. ( TODO: however, the generated data probably makes no sense)
 
-- list all passengers who have not yet checked in for flight F.
-
-- find a plane which flew without some booked passengers - seems to be none matching
-- which route requires the highest percentage of its plane's range. (No distance stored on routes. we already have calculations from coords)
+- Note: no planes which flew ever have tickets who don't check in. WAS: find a plane which flew without some booked passengers - seems to be none matching
+- Not worth the effort: which route requires the highest percentage of its plane's range. (No distance stored on routes. we already have calculations from coords)
 - Not possible: Was there a cheaper way for passenger P to accomplish his journey on day D? Write as few queries as possible. Not possible because we don't know the prices of flights.
 - NOT POSSIBLE: list the passengers who have travelled the most. NOT POSSIBLE BECAUSE: no recognisable individual has bought more than one ticket in the data.
 
