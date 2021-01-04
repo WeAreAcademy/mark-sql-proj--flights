@@ -134,9 +134,25 @@ Notes:
 
 - 250: list delayed flights which are destined for an airport further West than any Moscow airport. How many are there?
 
-- 260: List all routes where the arrival airport is at least 14 degrees further north than the departure airport. Sort the routes to show the most extreme of these journeys, first.
+- 260: List all routes where the arrival airport is at least 14 degrees further north than the departure airport.
+
+  - Sort the routes to show the most extreme of these journeys, first.
+  - Ensure you have at least the following columns:
+    - flight_no
+    - departure_city
+    - arrival_city
+    - departure_coordinates
+    - arrival_coordinates
+
+- 261 (optional): Export your results from task #260 as JSON, and copy-paste them into the visualiser, here: https://academy-flight-routes-vis.netlify.app/
+
+  - Does the visualisation confirm your expectations about these north-south journeys, and their rankings?
 
 - 265: List the ten routes which have planes flying the furthest distance from east to west.
+
+- 266: (optional): Export your results from task #265 as JSON, and copy-paste them into the visualiser, here: https://academy-flight-routes-vis.netlify.app/
+
+  - Does the visualisation confirm your expectations about these east-west journeys, and their rankings?
 
 - 270: Find the details of the (presumably luxurious) 'On Time' flights which have only one ticket booked on them. For each, list:
 
@@ -175,11 +191,11 @@ Notes:
 
 # TODO: work in progress
 
-- TODO: Pick passengers for the presentation task which all have a lot of data associated (multiple flights, different days, return journey, travelling companions, flight costs, WHO made the booking for them, when it was made, different flight statuses (scheduled, not yet departed, cancelled), who they are sitting next to, who they travelled with, etc
+- TODO: Pick passengers for the presentation task which all have a lot of data associated:
+
+* multiple flights, different days, return journey, travelling companions, flight costs, WHO made the booking for them, when it was made, different flight statuses (scheduled, not yet departed, cancelled), who they are sitting next to, who they travelled with, etc
 
   - check if it is possible to track more than one ticket for a unique passenger
-
-- TODO: for 250, 260, and particularly, 265: map the destination airports of the delayed flights on a map (use leaflet.js). E.g. export SQL-generated report to json and paste into some scaffolded codepen.
 
 - possible minor extra query. for each scheduled flight on day D, list the flight number, the count of checked in passengers, the count of booked tickets which have not yet checked in, and the available capacity that can still be sold.
 
