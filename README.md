@@ -34,7 +34,7 @@ You will write queries to find out information from a provided database containi
 
 - Download [this database-creation script](https://edu.postgrespro.com/demo-small-en.zip).
 
-Tip: you can do this on the terminal, if you have `wget` installed:
+Tip: If you have `wget` installed, you can do this on the terminal as follows:
 
 `wget https://edu.postgrespro.com/demo-small-en.zip`
 
@@ -62,7 +62,7 @@ This may take a couple of minutes.
 
 - Check there is only one error in the log, and that it concerns the DROP DATABASE statement. (This error will arise because the database doesn't yet exist.)
 
-## Exercise: familiarisation
+## Exercise - familiarisation
 
 Familiarise yourself with the database structure by reading the following documents:
 
@@ -70,7 +70,7 @@ Familiarise yourself with the database structure by reading the following docume
 - Schema diagram: https://postgrespro.com/docs/postgrespro/10/apjs02.html
 - Schema objects (most importantly, tables and views): https://postgrespro.com/docs/postgrespro/10/apjs04
 
-## Exercise:
+## Exercise - writing queries:
 
 Notes:
 
@@ -79,22 +79,34 @@ Notes:
 
 ### Queries (warm-up)
 
-- 010: List all aircraft
+- 010: List all aircraft in the system
+
 - 020: List the seats on the aircraft of type "Cessna 208 Caravan"
+
 - 030: List all cities having more than one airport
-- List all unique destinations for flights from 'Volgograd'...
+
+  - List all unique destinations for flights from 'Volgograd'...
 
 - 041: first, using only `flights` and `airports`
+
 - 042: then, again using the `routes` view
-- Ensure you get the same list of destinations from both approaches.
+
+  - Ensure you get the same list of destinations from both approaches.
 
 - 050: List the counts of flights in each status (arrived, cancelled, departed, etc)
+
 - 060: Find the "next" flight from Yekaterinburg to Moscow, where "next" is relative to a time given by bookings.now().
+
 - 070: List the 10 most expensive bookings
+
 - 075: List all passengers on the top 3 most expensive bookings
+
 - 080: List the tickets on the booking which has booking reference 521C53
+
 - 090: List the FLIGHTS (not the tickets) included on Antonina Kuznecova's ticket (ticket number 0005432661915).
+
   - include the flight status, airport names, the model of plane, and fare conditions (business / economy)
+
 - 100: List the seats occupied by Antonina Kuznecova on the various flights that form part of ticket 0005432661915
   - alongside seat number, include date of each flight, departure and arrival cities
 
@@ -146,11 +158,12 @@ Notes:
 - 290: List the names and seat numbers of the six passengers who sat in row 45 or 46 of the flight with the flight_id of 30625.
 
 - 300: Find the airport with the fewest scheduled flights.
+
 - 301: On what days of the week, and to where, can you fly out of the airport you found in the previous exercise?
 
 - 310: From which 5 cities can you fly out on a 'Boeing 777-300'?
 
-# Presentation task:
+# Exercise - Presentation:
 
 - Discover as much as you can about your assigned passenger (see below) and prepare a short presentation on this data and the queries you used to obtain it:
 
@@ -160,11 +173,9 @@ Notes:
 - group 4: "ALIYA MELNIKOVA"
 - group 5: "VALERIY KUZNECOV"
 
-- TODO: Pick passengers for this task which all have a lot of data associated (multiple flights, different days, return journey, travelling companions, flight costs, WHO made the booking for them, when it was made, different flight statuses (scheduled, not yet departed, cancelled), who they are sitting next to, who they travelled with, etc
-
 # TODO: work in progress
 
-- TODO: pick the passengers (and passenger ids) for the presentation task (see above)
+- TODO: Pick passengers for the presentation task which all have a lot of data associated (multiple flights, different days, return journey, travelling companions, flight costs, WHO made the booking for them, when it was made, different flight statuses (scheduled, not yet departed, cancelled), who they are sitting next to, who they travelled with, etc
 
   - check if it is possible to track more than one ticket for a unique passenger
 
@@ -179,8 +190,8 @@ Notes:
 - Not possible: Was there a cheaper way for passenger P to accomplish his journey on day D? Write as few queries as possible. Not possible because we don't know the prices of flights.
 - NOT POSSIBLE: list the passengers who have travelled the most. NOT POSSIBLE BECAUSE: no recognisable individual has bought more than one ticket in the data.
 
+- visualiser from React?
+
 ## Credits
 
-```
-
-```
+- TODO: link the original flight data
