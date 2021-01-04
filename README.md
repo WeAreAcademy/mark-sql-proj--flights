@@ -7,9 +7,6 @@ methods:
   - team
   - pair
   - solo
-
-tags:
-  - wip
 ---
 
 # Academy Exercise: Flights
@@ -181,33 +178,29 @@ Notes:
 
 # Exercise - Presentation:
 
-- Discover as much as you can about your assigned passenger (see below) and prepare a short presentation on this data and the queries you used to obtain it:
+- Discover as much as you can about your assigned passenger (see below) and prepare a short presentation on this data and the queries you used to obtain it.
 
-- group 1: "DMITRIY KUZMIN" (TODO: give passenger ids or booking numbers)
-- group 2: "YURIY MAKAROV"
-- group 3: "ALEKSANDR ABRAMOV"
-- group 4: "ALIYA MELNIKOVA"
-- group 5: "VALERIY KUZNECOV"
+You should try to use as few queries as possible to collect the data.
 
-# TODO: work in progress
+You should include information on at the very least:
 
-- TODO: Pick passengers for the presentation task which all have a lot of data associated:
+- Itinerary, including:
+  - locations involved,
+  - timings,
+  - type of plane,
+  - seat,
+  - flight statuses
+- Summary of cost
+- Summary of travel time
 
-* multiple flights, different days, return journey, travelling companions, flight costs, WHO made the booking for them, when it was made, different flight statuses (scheduled, not yet departed, cancelled), who they are sitting next to, who they travelled with, etc
+### Which passenger should we report on?
 
-  - check if it is possible to track more than one ticket for a unique passenger
-
-- possible minor extra query. for each scheduled flight on day D, list the flight number, the count of checked in passengers, the count of booked tickets which have not yet checked in, and the available capacity that can still be sold.
-
--possible addition for 230: find out if the delayed passengers have other flights booked and what the window is. ( TODO: however, the generated data probably makes no sense)
-
-- Note: no planes which flew ever have tickets who don't check in. WAS: find a plane which flew without some booked passengers - seems to be none matching
-- Not worth the effort: which route requires the highest percentage of its plane's range. (No distance stored on routes. we already have calculations from coords)
-- Not possible: Was there a cheaper way for passenger P to accomplish his journey on day D? Write as few queries as possible. Not possible because we don't know the prices of flights.
-- NOT POSSIBLE: list the passengers who have travelled the most. NOT POSSIBLE BECAUSE: no recognisable individual has bought more than one ticket in the data.
-
-- visualiser from React?
+- group 1: book_ref: 02BBD2 & passenger_id 7453 048981 (NATALYA POPOVA)
+- group 2: book_ref: 0C2FAC & passenger_id 5759 489758 (OLGA VOLKOVA)
+- group 3: book ref: D25BBC & passenger_id 0420 062045 (NATALYA IVANOVA)
+- group 4: book ref: 8A450F & passenger_id 1038 607499 (NAZIYA KAZAKOVA)
+- group 5: book ref: 82ABCD & passenger_id 0741 149706 (PAVEL ZAKHAROV)
 
 ## Credits
 
-- TODO: link the original flight data
+- These exercises use the ["Demo Database 'Airlines'"](https://postgrespro.com/docs/postgrespro/10/demodb-bookings) from [Postgres Professional](https://postgrespro.com/).
