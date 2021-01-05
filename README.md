@@ -21,7 +21,11 @@ You will write queries to find out information from a provided database containi
 
 - You have Postgres installed.
 - You have a database user which has the same name as your login, and it has permissions to create databases.
-- Optional, recommended: You have installed the [vscode extension `PostgreSQL` by Chris Kolkman](https://marketplace.visualstudio.com/items?itemName=ckolkman.vscode-postgres) or some other means of quickly running queries.
+- Optional, recommended: You have installed either:
+  - [vscode extension `PostgreSQL` by Chris Kolkman](https://marketplace.visualstudio.com/items?itemName=ckolkman.vscode-postgres) or
+  - [vscode extension `SQLTools` by Matheus Teixeira](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools) as well as
+    - [https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-pg](SQLTools PostgreSQL/Redshift Driver)
+  - or some other means of quickly running queries.
 
 ## Setup
 
@@ -141,13 +145,13 @@ Notes:
     - departure_coordinates
     - arrival_coordinates
 
-- 261 (optional): Export your results from task #260 as JSON, and copy-paste them into [this visualiser](https://academy-flight-routes-vis.netlify.app/).
+- 261: Export your results from task #260 as JSON, and copy-paste them into [this visualiser](https://academy-flight-routes-vis.netlify.app/). (See note at end on exporting results as JSON).
 
   - Does the visualisation confirm your expectations about these north-south journeys, and their rankings?
 
 - 265: List the ten routes which have planes flying the furthest distance from east to west.
 
-- 266: (optional): Export your results from task #265 as JSON, and copy-paste them into [this visualiser](https://academy-flight-routes-vis.netlify.app/).
+- 266: Export your results from task #265 as JSON\*, and copy-paste them into [this visualiser](https://academy-flight-routes-vis.netlify.app/).
 
   - Does the visualisation confirm your expectations about these east-west journeys, and their rankings?
 
@@ -200,6 +204,14 @@ You should include information on at the very least:
 - group 3: book ref: D25BBC & passenger_id 0420 062045 (NATALYA IVANOVA)
 - group 4: book ref: 8A450F & passenger_id 1038 607499 (NAZIYA KAZAKOVA)
 - group 5: book ref: 82ABCD & passenger_id 0741 149706 (PAVEL ZAKHAROV)
+
+## Exporting results as JSON
+
+First, run your query.
+
+If you have SQLTools installed (see pre-reqs section of this document), each query's results view will have a large `EXPORT` button. Click it and select "Save results as JSON". It'll prompt you for where to save the JSON file.
+
+If you are instead using Chris Kolkman's PostgreSQL extension, after running your query you should see at the very top of the window a little save icon. Click it and choose JSON. If you have multiple results sets it will ask you which set of rows you wish to export. On choosing one, it will export the relevant JSON to a new text window.
 
 ## Credits
 
