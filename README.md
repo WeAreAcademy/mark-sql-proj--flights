@@ -21,11 +21,9 @@ You will write queries to find out information from a provided database containi
 
 - You have Postgres installed.
 - You have a database user which has the same name as your login, and it has permissions to create databases.
-- Optional, recommended: You have installed either:
-  - [vscode extension `PostgreSQL` by Chris Kolkman](https://marketplace.visualstudio.com/items?itemName=ckolkman.vscode-postgres) or
-  - [vscode extension `SQLTools` by Matheus Teixeira](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools) as well as
-    - [https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-pg](SQLTools PostgreSQL/Redshift Driver)
-  - or some other means of quickly running queries.
+- Optional, recommended: You have some way of quickly editing and running queries, e.g. 
+  - [vscode extension `SQLTools` by Matheus Teixeira](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools) and [https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-pg](SQLTools PostgreSQL/Redshift Driver)
+  - [Postico](https://eggerapps.at/postico/) on mac.
 
 ## Setup
 
