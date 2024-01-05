@@ -57,6 +57,11 @@ unzip demo-small-en.zip
 psql < demo-small-en-20170815.sql
 ```
 
+Or, on an amazon workspace where YOUR user doesn't have database-creation permissions, but you have permission to run `sudo`:
+```
+sudo -u postgres psql -f demo-small-en-20170815.sql
+```
+
 This may take a couple of minutes.
 
 - Check there is only one error in the log, and that it concerns the DROP DATABASE statement. (This error will arise because the database doesn't yet exist.)
