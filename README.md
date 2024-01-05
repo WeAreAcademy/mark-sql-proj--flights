@@ -66,6 +66,8 @@ This may take a couple of minutes.
 
 - Check there is only one error in the log, and that it concerns the DROP DATABASE statement. (This error will arise because the database doesn't yet exist.)
 
+- Later, when you're sure the import was successful, you can delete the file demo-small-en-20170815.sql and the zipped version, if you like.
+  
 ## Exercise - familiarisation
 
 Familiarise yourself with the database structure by reading the following documents:
